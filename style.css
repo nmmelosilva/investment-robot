@@ -40,3 +40,8 @@ main{width:100%;overflow:hidden}
  #install{grid-column:auto}
  header .hero{grid-template-columns:1fr}
 }
+
+/* v3.2 */
+.mini{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:8px}
+.mini .bar{grid-column:1/-1}
+.mini b{text-align:left}
