@@ -5,7 +5,7 @@ function posHTML(p){return `<div class="position"><div><div class="name">${p.nam
 function draw(){
  positions=data?.positions||[];
  const total=positions.reduce((a,p)=>a+Math.abs(p.value),0),pnl=positions.reduce((a,p)=>a+p.pnl,0);
- totalValue.textContent=positions.length?eur(total):'—'; totalPnl.textContent=positions.length?eur(pnl):'—'; totalPnl.className=pnl>=0?'positive':'negative';
+ document.getElementById('totalValue').textContent=positions.length?eur(total):'—'; document.getElementById('totalPnl').textContent=positions.length?eur(pnl):'—'; document.getElementById('totalPnl').className=pnl>=0?'positive':'negative';
  document.getElementById('status').textContent=positions.length?`Carteira carregada localmente · ${positions.length} posições`:'Ainda não há carteira neste dispositivo.';
  let m={};positions.forEach(p=>m[p.cat]=(m[p.cat]||0)+Math.abs(p.value));
  allocation.innerHTML=positions.length?Object.entries(m).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="mini"><span>${k}</span><b>${eur(v)}</b><div class="bar"><i style="width:${total?v/total*100:0}%"></i></div></div>`).join(''):'<div class="privacy">Importa a carteira privada para veres o dashboard.</div>';
